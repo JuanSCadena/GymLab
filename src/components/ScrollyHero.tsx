@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
 import { ChevronsDown } from "lucide-react";
-import TextReveal from "./TextReveal";
+
 
 export default function ScrollyHero() {
     const containerRef = useRef<HTMLDivElement>(null);

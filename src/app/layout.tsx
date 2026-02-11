@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`bg-[#050505] selection:bg-[#E3FF00] selection:text-black font-sans overflow-x-hidden`}
+        className={`${inter.variable} ${oswald.variable} bg-[#050505] selection:bg-[#E3FF00] selection:text-black font-sans overflow-x-hidden`}
       >
         {children}
       </body>
