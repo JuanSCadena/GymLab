@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
                             className="w-[400px] md:w-[600px] flex-shrink-0 p-8 border border-white/10 bg-white/5 backdrop-blur-sm rounded-xl hover:border-[#E3FF00]/50 transition-colors duration-300 group"
                         >
                             <p className="text-2xl md:text-4xl font-black italic text-white uppercase leading-tight font-oswald mb-6 text-shadow-glow group-hover:text-[#E3FF00] transition-colors">
-                                "{t.quote}"
+                                &quot;{t.quote}&quot;
                             </p>
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-1 bg-[#E3FF00]" />

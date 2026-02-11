@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+// import { Menu, X } from "lucide-react"; // Unused
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -69,8 +69,8 @@ export default function Navbar() {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className={`relative flex items-center justify-center transition-all duration-500 mx-auto ${isScrolled
-                        ? 'bg-black/80 backdrop-blur-md rounded-full border border-white/10 shadow-2xl shadow-[#E3FF00]/10 px-6 py-3 min-w-[120px]'
-                        : 'bg-transparent' /* At top, no background */
+                    ? 'bg-black/80 backdrop-blur-md rounded-full border border-white/10 shadow-2xl shadow-[#E3FF00]/10 px-6 py-3 min-w-[120px]'
+                    : 'bg-transparent' /* At top, no background */
                     }`}>
 
                     {/* 

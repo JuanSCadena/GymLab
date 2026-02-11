@@ -56,7 +56,7 @@ export default function PlansSection() {
                     viewport={{ once: true, margin: "-100px" }}
                     className="grid grid-cols-1 md:grid-cols-3 gap-8"
                 >
-                    {plans.map((plan, index) => (
+                    {plans.map((plan) => (
                         <motion.div key={plan.name} variants={cardVariants}>
                             <GlassCard
                                 delay={0} // Managed by parent stagger

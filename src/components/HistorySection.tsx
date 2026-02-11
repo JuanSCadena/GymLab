@@ -18,11 +18,11 @@ export default function HistorySection() {
                     className="space-y-6"
                 >
                     <p className="text-2xl font-black italic text-white leading-tight font-oswald tracking-wide">
-                        "Fundado en el acero, forjado en el sudor. No somos un gimnasio, somos <motion.span
+                        &quot;Fundado en el acero, forjado en el sudor. No somos un gimnasio, somos <motion.span
                             animate={{ color: ["#E3FF00", "#FF00E6", "#00FFF0", "#E3FF00"] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                             className="not-italic"
-                        >un movimiento</motion.span>."
+                        >un movimiento</motion.span>.&quot;
                     </p>
                     <p className="text-lg text-gray-400 leading-relaxed font-light">
                         GymLand nació con una misión simple: erradicar la mediocridad.
@@ -34,7 +34,7 @@ export default function HistorySection() {
                         transition={{ duration: 0.3 }}
                     >
                         <GlassCard className="mt-8 border-l-4 border-l-[#E3FF00]">
-                            <p className="text-xl text-white italic">"No vendemos membresías, vendemos transformaciones."</p>
+                            <p className="text-xl text-white italic">&quot;No vendemos membresías, vendemos transformaciones.&quot;</p>
                             <p className="mt-4 text-[#E3FF00] font-bold uppercase tracking-widest text-xs">- The Founder</p>
                         </GlassCard>
                     </motion.div>
