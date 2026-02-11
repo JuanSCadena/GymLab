@@ -61,7 +61,7 @@ export default function Navbar() {
               Wraps only the links/menu interaction.
             */}
             <motion.nav
-                className={`fixed top-0 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ease-in-out ${isScrolled ? 'pt-4' : 'w-full pt-6'
+                className={`hidden lg:block fixed top-0 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ease-in-out ${isScrolled ? 'pt-4' : 'w-full pt-6'
                     /* Note: width is controlled by the inner container logic mostly, 
                        but we need z-index lower than the logo if they overlap (improbable here) */
                     }`}

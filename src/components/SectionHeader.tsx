@@ -20,12 +20,12 @@ export default function SectionHeader({ title, subtitle, align = "center", class
                 tag="span"
                 className="text-[#E3FF00] text-sm font-mono tracking-widest uppercase mb-2"
             />
-            <div className="overflow-hidden">
+            <div className=""> {/* Removed overflow-hidden */}
                 <motion.h2
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true, margin: "-10%" }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-4xl md:text-6xl font-bold text-white uppercase tracking-tight font-oswald"
                 >
                     {title}

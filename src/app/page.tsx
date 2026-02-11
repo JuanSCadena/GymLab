@@ -14,7 +14,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
-    <main className="bg-[#050505] selection:bg-[#E3FF00] selection:text-black font-sans">
+    <main className="bg-[#050505] selection:bg-[#E3FF00] selection:text-black font-sans w-full">
       <Navbar />
       <GlobalProgress />
       <WhatsAppButton />

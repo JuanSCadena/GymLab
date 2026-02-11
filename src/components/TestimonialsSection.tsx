@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
             <SectionHeader title="Lo que dicen" subtitle="Testimonios" align="center" />
 
             {/* Masked edges for fade effect */}
-            <div className="relative w-full max-w-[100vw] overflow-hidden mask-gradient-x">
+            <div className="relative w-full max-w-full overflow-hidden mask-gradient-x">
                 {/* 
                    Infinite Track:
                    We duplicate the list to ensure seamless looping.

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
+import { ChevronsDown } from "lucide-react";
 import TextReveal from "./TextReveal";
 
 export default function ScrollyHero() {
@@ -102,9 +103,16 @@ export default function ScrollyHero() {
         if (isLoaded) render(0);
     }, [isLoaded, render]);
 
+    // --- PARALLAX EFFECT ---
+    // Move content up slightly as we scroll to create dynamic movement
+    const yParallax = useTransform(scrollYProgress, [0.2, 1], ["0%", "-20%"]);
+
     return (
-        <section ref={containerRef} className="relative h-[400vh] bg-[#050505]">
-            <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+        <section ref={containerRef} className="relative h-[300vh] bg-[#050505]">
+            <motion.div
+                style={{ y: yParallax }}
+                className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center"
+            >
 
                 {/* --- HERO TITLE (BEHIND CANVAS) --- */}
                 <motion.div
@@ -122,28 +130,59 @@ export default function ScrollyHero() {
                             where the image is bright (the body), but shows it where image is dark (bg) 
                         */}
                         <h1
-                            className="text-8xl md:text-[12rem] font-black italic tracking-tighter text-[#888] font-oswald leading-[0.8]"
+                            className="w-full text-[22vw] md:text-[12rem] font-black italic tracking-tighter text-[#888] font-oswald leading-[0.8]"
                         // Removed Outline stroke here to ensure solid fill blends correctly with image
                         >
                             GYM LAND
                         </h1>
                     </div>
 
-                    <div className="mt-12 overflow-hidden bg-black/80 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 z-20">
-                        <TextReveal
-                            text="SCROLL TO START"
-                            tag="p"
-                            className="text-xs font-mono text-[#E3FF00] tracking-[0.8em] uppercase"
-                            delay={1.2}
-                        />
-                    </div>
+                    <button
+                        onClick={() => {
+                            const target = document.getElementById('history');
+                            if (!target) return;
+
+                            const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+                            const startPosition = window.scrollY;
+                            const distance = targetPosition - startPosition;
+                            const duration = 5000; // 5 seconds - Balanced speed
+                            let startTime: number | null = null;
+
+                            function animation(currentTime: number) {
+                                if (startTime === null) startTime = currentTime;
+                                const timeElapsed = currentTime - startTime;
+                                const run = ease(timeElapsed, startPosition, distance, duration);
+                                window.scrollTo(0, run);
+                                if (timeElapsed < duration) requestAnimationFrame(animation);
+                            }
+
+                            // Ease in-out cubic function for premium feel
+                            function ease(t: number, b: number, c: number, d: number) {
+                                t /= d / 2;
+                                if (t < 1) return c / 2 * t * t * t + b;
+                                t -= 2;
+                                return c / 2 * (t * t * t + 2) + b;
+                            }
+
+                            requestAnimationFrame(animation);
+                        }}
+                        className="mt-12 group relative flex items-center justify-center w-16 h-16 rounded-full border border-white/20 hover:scale-110 transition-all duration-300 bg-black/50 backdrop-blur-sm cursor-pointer"
+                    >
+                        <motion.div
+                            animate={{ y: [0, 8, 0] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            <ChevronsDown className="text-[#E3FF00] w-8 h-8" />
+                        </motion.div>
+                        <div className="absolute inset-0 rounded-full bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </button>
                 </motion.div>
 
                 {/* --- CANVAS (ON TOP) --- */}
                 <motion.canvas
                     ref={canvasRef}
                     style={{ opacity }}
-                    className="block w-full h-full object-cover z-10 relative mix-blend-lighten"
+                    className="block w-full h-full object-cover z-10 relative mix-blend-lighten pointer-events-none"
                 />
 
                 {/* DARK GRADIENT VIGNETTE (ON TOP OF CANVAS) */}
@@ -169,7 +208,7 @@ export default function ScrollyHero() {
                         </div>
                     </div>
                 )}
-            </div>
+            </motion.div>
         </section>
     );
 }

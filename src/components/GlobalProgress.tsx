@@ -22,7 +22,7 @@ export default function GlobalProgress() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4 mix-blend-difference pointer-events-none"
+            className="fixed right-2 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4 mix-blend-difference pointer-events-none"
         >
             <div className="h-32 w-[1px] bg-white/20 overflow-hidden relative">
                 <motion.div

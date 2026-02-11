@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function HistorySection() {
     return (
-        <section id="history" className="relative py-24 px-4 md:px-8 max-w-7xl mx-auto">
+        <section id="history" className="relative py-24 pl-4 pr-10 md:px-8 max-w-7xl mx-auto">
             <SectionHeader title="Nuestra Historia" subtitle="Desde 2010" align="left" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -45,7 +45,7 @@ export default function HistorySection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="relative h-[500px] w-full bg-white/5 rounded-2xl overflow-hidden group border border-white/10"
+                    className="relative h-[300px] md:h-[500px] w-full bg-white/5 rounded-2xl overflow-hidden group border border-white/10"
                 >
                     <motion.div
                         animate={{
