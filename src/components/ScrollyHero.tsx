@@ -34,8 +34,8 @@ export default function ScrollyHero() {
 
         for (let i = 1; i <= frameCount; i++) {
             const img = new Image();
-            // Filename format: _MConverter.eu_AnimacionSinMarca-1.png
-            const src = `/images/sequence3/_MConverter.eu_AnimacionSinMarca-${i}.png`;
+            // Filename format: _MConverter.eu_AnimacionSinMarca-1.webp
+            const src = `/images/sequence3/webp/_MConverter.eu_AnimacionSinMarca-${i}.webp`;
             img.src = src;
             img.onload = () => {
                 loadedCount++;
