@@ -25,7 +25,7 @@ export default function ScrollyHero() {
     const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
     const heroScale = useTransform(scrollYProgress, [0, 0.4], [1, 1.1]);
 
-    const frameCount = 240;
+    const frameCount = 192;
 
     // Preload images
     useEffect(() => {
@@ -34,7 +34,8 @@ export default function ScrollyHero() {
 
         for (let i = 1; i <= frameCount; i++) {
             const img = new Image();
-            const src = `/images/sequence/ezgif-frame-${i.toString().padStart(3, "0")}.jpg`;
+            // Filename format: _MConverter.eu_AnimacionSinMarca-1.png
+            const src = `/images/sequence3/_MConverter.eu_AnimacionSinMarca-${i}.png`;
             img.src = src;
             img.onload = () => {
                 loadedCount++;
